@@ -9,7 +9,6 @@
     </Dialogs>
     <Resources>
         <File name="index" src="html/index.html" />
-        <File name="" src=".DS_Store" />
     </Resources>
     <Topics>
         <Topic name="ExampleDialog_jpj" src="behavior_1/ExampleDialog/ExampleDialog_jpj.top" topicName="ExampleDialog" language="ja_JP" />
