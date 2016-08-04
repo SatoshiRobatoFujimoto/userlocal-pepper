@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rinna in Pepper</title>
+    <script src="/libs/qimessaging/1.0/qimessaging.js"></script>
+    <script>
+      var session = new QiSession();
+
+      function toTabletHandler(value) {
+        console.log(value);
+        document.getElementById("text1").innerHTML = value;
+      }
+
+      function startSubscribe() {
+        console.log('startSubscribe');
+        session.service("ALMemory").done(function (ALMemory) {
+          ALMemory.subscriber("PepperQiMessaging/totablet").done(function(subscriber) {
+            console.log('get event');
+            subscriber.signal.connect(toTabletHandler);
+          });
+        });
+      }
+    </script>
+  </head>
+  <body onLoad="startSubscribe();">
+    <div style="font-size: 12em; text-align: center;">
+      UserlocalAI in Pepper
+    </div>
+    <hr/>
+    <div style="font-size: 8em; text-align: center;" id="text1">
+      ゆっくり話しかけてね
+    </div>
+  </body>
+</html>
